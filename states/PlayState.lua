@@ -106,6 +106,7 @@ function PlayState:update(dt)
 			-- implement pause feature
 			scrolling = false -- stop scrolling
 			sounds['music']:pause()
+			sounds['pause']:play()
 		else
 			-- unpause when it
 			scrolling = true
@@ -122,8 +123,16 @@ function PlayState:render()
 
     love.graphics.setFont(flappyFont)
     love.graphics.print('Score: ' .. tostring(self.score), 8, 8)
+	
 
     self.bird:render()
+	if scrolling == false then
+		love.graphics.setFont(hugeFont)
+		love.graphics.printf('PAUSED', 0, VIRTUAL_HEIGHT/2 - 120, VIRTUAL_WIDTH, 'center')
+		
+		love.graphics.setFont(mediumFont)
+		love.graphics.printf('Press p again to continue', 0, VIRTUAL_HEIGHT/2 - 20, VIRTUAL_WIDTH, 'center')
+	end
 end
 
 --[[
@@ -139,5 +148,5 @@ end
 ]]
 function PlayState:exit()
     -- stop scrolling for the death/score screen
-    scrolling = false
+    -- scrolling = false
 end

@@ -51,6 +51,8 @@ WINDOW_HEIGHT = 720
 VIRTUAL_WIDTH = 512
 VIRTUAL_HEIGHT = 288
 
+scrolling = true
+
 local background = love.graphics.newImage('background.png')
 local backgroundScroll = 0
 
@@ -85,7 +87,7 @@ function love.load()
         ['explosion'] = love.audio.newSource('explosion.wav', 'static'),
         ['hurt'] = love.audio.newSource('hurt.wav', 'static'),
         ['score'] = love.audio.newSource('score.wav', 'static'),
-
+		['pause'] = love.audio.newSource('pause.wav', 'static'),
         -- https://freesound.org/people/xsgianni/sounds/388079/
         ['music'] = love.audio.newSource('marios_way.mp3', 'static')
     }
